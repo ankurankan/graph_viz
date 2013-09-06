@@ -4,10 +4,10 @@ Graph Vizualizer
 Graph Vizualizer is a tool(based on networkx) for vizualizing various graph algorithms.
 
 Dependency:
-Networkx: http://networkx.github.io/
+Networkx: http://networkx.github.io/   
 Matplotlib: http://matplotlib.org/
 
-Example for vizualizing neighbors:
+<strong>Example for vizualizing neighbors:</strong>
 <pre><code>
 import viz_graph as vg
 G = vg.viz_graph()
