@@ -19,25 +19,26 @@ class viz_graph(nx.Graph):
         colors_list = [color if i in neighbor_nodes else 'r' for i in self.nodes()]
         nx.draw_networkx(self, nx.spring_layout(self), node_color=colors_list)
     
-    def viz_dfs(self, node, color='b'):
-        animate = dfs(G, node)
-        for i in animate:
-            temp_colors = colors[::]
-            for j in i:
-                temp_colors[j-1] = 'b'
-            final.colors.append(temp_colors)
-        animation.FuncAnimation(fig, animati)
-        
-    def dfs(G, s):
+            
+    def dfs(self, s):
         animate = []
         Q = [s]
         visited = [s]
         animate.append(visited[::])
         while Q:
             node = Q.pop(0)
-            for v in G.neighbors(node):
+            for v in self.neighbors(node):
                 if v not in visited:
                     visited.append(v)
                     Q.append(v)
             animate.append(visited[::])
-       return (animate)
+        return (animate)
+        
+    def viz_dfs(self, node, animate, color='b'):
+#        animate = dfs(node)
+        for i in animate:
+            temp_colors = colors[::]
+            for j in i:
+                temp_colors[j-1] = 'b'
+            final.colors.append(temp_colors)
+        animation.FuncAnimation(fig, animati)
