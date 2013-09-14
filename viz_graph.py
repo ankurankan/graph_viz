@@ -21,7 +21,7 @@ class viz_graph(nx.Graph):
         colors_list = [color if i in neighbor_nodes else 'r' for i in self.nodes()]
         nx.draw_networkx(self, nx.spring_layout(self), node_color=colors_list)
         
-    def viz_dfs(self, node, color='b'):
+    def viz_bfs(self, node, color='b'):
         """
         Animation for breadth first search
         
@@ -37,7 +37,7 @@ class viz_graph(nx.Graph):
         def animati(i):
             nx.draw_circular(self, node_color=final_colors[i])
                      
-        def dfs(s):
+        def bfs(s):
             animate = []
             Q = [s]
             visited = [s]
@@ -53,7 +53,7 @@ class viz_graph(nx.Graph):
      
         colors = ['r' for i in range(self.number_of_nodes())]
         final_colors = []
-        animate = dfs(node)
+        animate = bfs(node)
         for i in animate:
             temp_colors = colors[::]
             for j in i:
