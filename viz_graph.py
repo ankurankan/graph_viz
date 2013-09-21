@@ -59,5 +59,10 @@ class viz_graph(nx.Graph):
             for j in i:
                 temp_colors[j-1] = 'b'
             final_colors.append(temp_colors)
+        print(final_colors)
         fig = plt.figure()
-        animation.FuncAnimation(fig, animati)
+        animation.FuncAnimation(fig, self.animate, fargs=final_colors)
+
+    def animate(self, color_list):
+        print color_list
+        nx.draw_circular(self, node_color=color_list[i])	
